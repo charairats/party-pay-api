@@ -29,8 +29,11 @@ export class GroupsService {
     }
 
     async create(createGroupDto: CreateGroupDto) {
-        const group = new this.groupModel(createGroupDto);
-        return group.save();
+        const group = await (new this.groupModel(createGroupDto)).save();
+        return {
+            message: 'Group created successfully',
+            group,
+        };
     }
 
     async update(id: string, updateGroupDto: UpdateGroupDto) {
@@ -56,7 +59,10 @@ export class GroupsService {
             throw new NotFoundException('Group not found');
         }
 
-        return group;
+        return {
+            message: 'Group updated successfully',
+            group,
+        };
     }
 
     async remove(id: string) {
