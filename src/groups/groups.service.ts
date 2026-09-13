@@ -41,7 +41,9 @@ export class GroupsService {
                 id,
                 {
                     name: updateGroupDto.name,
-                    description: updateGroupDto.description ?? '',
+                    description: updateGroupDto.description,
+                    type: updateGroupDto.type,
+                    status: updateGroupDto.status,
                 },
                 {
                     new: true,

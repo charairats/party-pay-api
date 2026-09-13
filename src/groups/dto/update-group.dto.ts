@@ -3,5 +3,4 @@ export class UpdateGroupDto {
     description?: string;
     type?: string;
     status?: string;
-    members?: string[];
 }
